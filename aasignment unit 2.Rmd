@@ -1,0 +1,100 @@
+---
+title: "Untitled"
+author: "sakkaravarthi"
+date: "2024-07-19"
+output: html_document
+---
+
+```{r}
+library(ISLR)
+library(MASS)
+```
+```{r}
+?Boston
+data(Boston)
+lm.fit=lm(medv~lstat,data=Boston)
+```
+```{r}
+attach(Boston)
+lm.fit=lm(medv~lstat)
+lm.fit
+```
+```{r}
+summary(lm.fit)
+```
+```{r}
+names(lm.fit)
+lm.fit
+```
+```{r}
+coef(lm.fit)
+```
+```{r}
+attach(Auto)
+fit=lm(mpg~horsepower)
+summary(fit)
+```
+```{r}
+```
+
+
+```{r}
+pairs(Auto)
+```
+```{r}
+par(mfrow=c(2,2))
+```
+
+
+```{r}
+fit=lm(mpg~year+origin+weight+year*weight, data=Auto)
+summary(fit)
+```
+```{r}
+fit_1=lm(mpg~weight+log(weight)+sqrt(weight)+poly(weight,2), data=Auto)
+summary(fit_1)
+```
+```{r}
+fit_3=lm(Sales~Price+Urban+US, data=Carseats)
+summary(fit_3)
+```
+```{r}
+set.seed(1)
+x=rnorm(100)
+y=2*x+rnorm(100)
+x
+y
+```
+```{r}
+Model1=lm(x~y+0)
+summary(Model1)
+
+```
+```{r}
+x+rnorm (100,0,1)
+eps=rnorm (100.0,sqrt(0.25))
+
+
+```
+```{r}
+y=1+0.5*x+eps
+
+```
+
+```{r}
+length(y)
+plot(x,y)
+fit3=lm(y~x+0)
+summary(fit3)
+plot(x,y)
+abline(fit3,col="red")
+abline(coef = c(-1,0.5),col ="green")
+legend("topright",c("LR","PR"),col = c("red","blue"))
+
+
+
+```
+
+
+```
+
